@@ -1,0 +1,25 @@
+html, body {
+    font-family: 'Libre Baskerville', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: bold;
+}
+
+.post {
+    padding: 24px;
+    margin-bottom: 16px;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: #00b894;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+    color: #008067;
+}
+
+header {
+    padding: 48px 0;
+}

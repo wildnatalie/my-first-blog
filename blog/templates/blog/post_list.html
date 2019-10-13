@@ -1,55 +1,46 @@
+{% load static %}
+
 <html>
     <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700&display=swap&subset=latin-ext" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">        
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}" >
         <title>Django Girls blog</title>
-        <style>
-            .body {
-                box-sizing: border-box;
-            }
-            .wrapper {
-                width: 100%;
-                max-width: 1200px;
-                margin: 0 auto;
-            }
-            .posts {
-                display: flex;
-                justify-content: center;
-                flex: 1 0 0;
-                flex-wrap: wrap;
-            }
-            .post {
-                padding: 16px;
-                flex-grow: 1;
-                flex-basis: 30%;
-                max-width: 33.33%;
-                margin-bottom: 32px;
-            }
-            a {
-                color: black;
-            }
-        </style>
+        
     </head>
     <body>
-        <div class="wrapper">
-            <div>
-                <h1><a href="/">Django Girls Blog</a></h1>
+        <header>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col text-center">
+                        <h1><a href="/">Django Girls Blog</a></h1>
+                    </div>
+                </div>
             </div>
-    
-           <div class="posts">
-               {% for post in posts %}
-               <div class="post">
-                   <div>
-                       <small>
-                           {{ post.published_date }}
-                       </small>
-                   </div>
-                   <h4>{{ post.author }}</h4>
-                   <h2><a href="#">{{ post.title }}</a></h2>
-                   <div class="post-content">
-                       {{ post.text|linebreaksbr }}
-                   </div>
-               </div>
-               {% endfor %}
-           </div>
-        </div>
+        </header>
+        <section class="posts">
+            <div class="container-fluid">
+                <div class="row">
+                        {% for post in posts %}
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="post">
+                                    <div class="mb-2">
+                                        <small>
+                                            {{ post.published_date }}
+                                        </small>
+                                    </div>
+                                    <h4>{{ post.author }}</h4>
+                                    <h2><a href="#">{{ post.title }}</a></h2>
+                                    <div class="post-content">
+                                        {{ post.text|linebreaksbr }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                </div>
+            </div>
+        </section>
     </body>
 </html>
