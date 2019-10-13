@@ -1,22 +1,55 @@
 <html>
     <head>
         <title>Django Girls blog</title>
+        <style>
+            .body {
+                box-sizing: border-box;
+            }
+            .wrapper {
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .posts {
+                display: flex;
+                justify-content: center;
+                flex: 1 0 0;
+                flex-wrap: wrap;
+            }
+            .post {
+                padding: 16px;
+                flex-grow: 1;
+                flex-basis: 30%;
+                max-width: 33.33%;
+                margin-bottom: 32px;
+            }
+            a {
+                color: black;
+            }
+        </style>
     </head>
     <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
+        <div class="wrapper">
+            <div>
+                <h1><a href="/">Django Girls Blog</a></h1>
+            </div>
+    
+           <div class="posts">
+               {% for post in posts %}
+               <div class="post">
+                   <div>
+                       <small>
+                           {{ post.published_date }}
+                       </small>
+                   </div>
+                   <h4>{{ post.author }}</h4>
+                   <h2><a href="#">{{ post.title }}</a></h2>
+                   <div class="post-content">
+                       {{ post.text|linebreaksbr }}
+                   </div>
+               </div>
+               {% endfor %}
+           </div>
         </div>
     </body>
 </html>
