@@ -1,46 +1,26 @@
-{% load static %}
+{% extends 'blog/base.html' %}
 
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700&display=swap&subset=latin-ext" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">        
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}" >
-        <title>Django Girls blog</title>
-        
-    </head>
-    <body>
-        <header>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col text-center">
-                        <h1><a href="/">Django Girls Blog</a></h1>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <section class="posts">
-            <div class="container-fluid">
-                <div class="row">
-                        {% for post in posts %}
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <div class="post">
-                                    <div class="mb-2">
-                                        <small>
-                                            {{ post.published_date }}
-                                        </small>
-                                    </div>
-                                    <h4>{{ post.author }}</h4>
-                                    <h2><a href="#">{{ post.title }}</a></h2>
-                                    <div class="post-content">
-                                        {{ post.text|linebreaksbr }}
-                                    </div>
+{% block content %}
+    <section class="posts">
+        <div class="container-fluid">
+            <div class="row">
+                    {% for post in posts %}
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="post">
+                                <div class="mb-2">
+                                    <small>
+                                        {{ post.published_date }}
+                                    </small>
+                                </div>
+                                <h4>{{ post.author }}</h4>
+                                <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+                                <div class="post-content">
+                                    <p>{{ post.text|linebreaksbr }}</p>
                                 </div>
                             </div>
-                        {% endfor %}
-                </div>
+                        </div>
+                    {% endfor %}
             </div>
-        </section>
-    </body>
-</html>
+        </div>
+    </section>
+{% endblock %}
