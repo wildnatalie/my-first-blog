@@ -23,3 +23,9 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 header {
     padding: 48px 0;
 }
+
+@media all and (max-width: 575px) {
+    .post {
+        padding: 0;
+    }
+}
