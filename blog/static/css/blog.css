@@ -24,6 +24,10 @@ header {
     padding: 48px 0;
 }
 
+a.grey-link {
+    color: #6e6e6e;
+}
+
 @media all and (max-width: 575px) {
     .post {
         padding: 0;

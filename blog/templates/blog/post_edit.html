@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <section class="post-edit-form">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <form method="POST" class="post-form">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Zapisz</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

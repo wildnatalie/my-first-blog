@@ -11,6 +11,17 @@
         
     </head>
     <body>
+        {% if user.is_authenticated %}
+            <nav>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <a href="{% url 'post_new' %}" class="grey-link my-3">Dodaj nowy post</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        {% endif %}
         <header>
             <div class="container-fluid">
                 <div class="row">

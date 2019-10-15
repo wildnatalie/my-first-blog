@@ -13,6 +13,11 @@
                         <div class="post-content">
                             <p>{{ post.text|linebreaksbr }}</p>
                         </div>
+                        {% if user.is_authenticated %}
+                            <div class="mt-3 text-right">
+                                <small><a href="{% url 'post_edit' pk=post.pk %}" class="grey-link">Edytuj</a></small>
+                            </div>  
+                        {% endif %}
                     </div>
                 </div>
             </div>
